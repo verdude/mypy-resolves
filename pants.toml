@@ -3,6 +3,9 @@ pants_version = "2.24.2"
 backend_packages = [
   "pants.backend.python",
   "pants.backend.python.typecheck.mypy",
+  "pants.backend.python.lint.autoflake",
+  "pants.backend.python.lint.black",
+  "pants.backend.python.lint.isort",
 ]
 
 [python]

@@ -1,54 +1,26 @@
 [tool.isort]
 profile = "black"
-line_length = 100
-known_first_party = [
-  "lovage",
-  "coreapi",
-  "sync",
-  "urlshortener",
-  "kinesis_sink_validator",
-  "phone",
-]
-default_section = "THIRDPARTY"
-
-[tool.flake8]
-max-line-length = 18
-
-[tool.bandit]
-exclude_dirs = ["*/tests/*", "*/unittests/*"]
+line_length = 88
 
 [tool.black]
-line-length = 100
+line-length = 88
 
 [tool.mypy]
-exclude = [
-  "lovage/telnyx/sdk/*",
-  "lovage/intercom/sdk/*",
-  "lovage/tcr/sdk/*",
-  "lovage/pipedrive/sdk/*",
-]
 plugins = [
   "pydantic.mypy",
-  "sqlalchemy.ext.mypy.plugin",
 ]
 namespace_packages = true
 explicit_package_bases = true
 
 strict = true
-# unreachable checker has too many false positives
 warn_unreachable = false
 
-# These are enabled by strict mode.
-# We can enable them one by one if we desire.
-# Some of these require changes to almost all
-# route functions at a minimum.
 disallow_incomplete_defs = false
 disallow_untyped_defs = false
 disallow_untyped_calls = false
 no_implicit_reexport = false
 warn_return_any = false
-# for pyright 'compatibility'
-warn_unused_ignores = false
+warn_unused_ignores = true
 
 enable_error_code = [
   "redundant-expr",
@@ -80,74 +52,3 @@ error_summary = true
 init_forbid_extra = true
 init_typed = true
 warn_required_dynamic_aliases = true
-
-[[tool.mypy.overrides]]
-module = [
-  "sendgrid.*",
-  "twilio.*",
-  "pycolorprint.*",
-  "smartystreets_python_sdk.*",
-  "human_id.*",
-  "hvac.*",
-  "google.*",
-  "googlemaps.*",
-  "googleapiclient.*",
-  "segment.*",
-  "auth0.*",
-  "uvicorn.*",
-  "factory.*",
-  "ffmpeg.*",
-  "defusedxml.*",
-  "flipper.*",
-  "deepgram.*",
-  "langchain.*",
-  "langchain_text_splitters.*",
-  "lovage.telnyx.sdk.*",
-  "lovage.intercom.sdk.*",
-  "lovage.tcr.sdk.*",
-  "lovage.pipedrive.sdk.*",
-  "telnyx.*",
-  "rich.*",
-]
-follow_imports = "skip"
-ignore_missing_imports = true
-ignore_errors = true
-
-[tool.pyright]
-ignore = [
-  "pants-plugins",
-  "jupyter-notebooks/**/tmobile",
-
-  "test-utils",
-  "lib/telnyx/lovage/telnyx/sdk/*",
-  "lib/intercom/lovage/intercom/sdk/*",
-  "lib/tcr/lovage/tcr/sdk/*",
-  "lib/pipedrive/lovage/pipedrive/sdk/*",
-]
-exclude = [
-  "dist",
-]
-pythonVersion = "3.11"
-reportMissingImports = true
-reportMissingTypeStubs = false
-venvPath = "dist/export/python/virtualenvs/v3/"
-venv = "3.11.11"
-extraPaths = [
-  "./lib/schema",
-  "./lib/services",
-  "./lib/utils",
-  "./lib/telnyx",
-  "./lib/intercom",
-  "./lib/tcr",
-  "./lib/pipedrive",
-  "./lib/oas_utils",
-  "./test-utils",
-  "./lib/models",
-  "./lib/jobs",
-  "./lib/exceptions",
-  "./test-utils/",
-  "./projects",
-  "./tools/parseenv",
-  "./v3",
-  "./v3/lib",
-]

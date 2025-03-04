@@ -1,7 +1,7 @@
 python_requirement(
     name="ffmpeg_target",
     modules=["ffmpeg"],
-    requirements=["ffmpeg-python"],
+    requirements=["typed-ffmpeg"],
     resolve=parametrize("python-default","v2"),
 )
 
