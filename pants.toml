@@ -1,0 +1,35 @@
+[GLOBAL]
+pants_version = "2.24.2"
+backend_packages = [
+  "pants.backend.python",
+  "pants.backend.python.typecheck.mypy",
+]
+
+[python]
+interpreter_constraints = ["CPython==3.10.15", "CPython==3.11.11"]
+enable_resolves = true
+
+[python.resolves]
+python-default = "v1.lock"
+v2 = "v2.lock"
+mypy = "mypy.lock"
+
+[python.resolves_to_interpreter_constraints]
+v2 = ["CPython==3.11.11"]
+python-default = ["CPython==3.10.15"]
+
+[generate-lockfiles]
+diff = true
+
+[source]
+root_patterns = [
+  "/v1",
+  "/v2",
+]
+
+[mypy]
+config = "pyproject.toml"
+install_from_resolve = "mypy"
+
+[anonymous-telemetry]
+enabled = true
