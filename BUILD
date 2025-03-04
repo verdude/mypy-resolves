@@ -9,14 +9,14 @@ python_requirement(
     name="pydantic-v1",
     modules=["pydantic"],
     requirements=["pydantic>=2.0.0"],
-    resolve="python-default",
+    resolve="v2",
 )
 
 python_requirement(
     name="pydantic-v2",
     modules=["pydantic"],
     requirements=["pydantic<2.0.0"],
-    resolve="v2",
+    resolve="python-default",
 )
 
 python_requirement(
