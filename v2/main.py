@@ -18,11 +18,12 @@ class FileMeta(BaseModel):
 
 media_file = sys.argv[1]
 streams = ffmpeg.probe(media_file)["streams"]
-print(
-    json.dumps(
-        [
-            FileMeta(**meta, PascalCase="some value", pascal_case="snake value").dict()
-            for meta in streams
-        ]
-    )
-)
+meta = [
+    FileMeta(
+        **meta,
+        PascalCase="some value",
+        pascal_case="snake value",
+    ).dict()
+    for meta in streams
+]
+print(json.dumps(meta))
