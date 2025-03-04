@@ -2,11 +2,12 @@ import json
 import sys
 
 import ffmpeg
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, NoneStr
 
 
 class FileMeta(BaseModel):
     something: str = Field(alias="SomeThing")
+    other: NoneStr
 
     class Config:
         frozen = True

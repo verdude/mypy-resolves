@@ -22,7 +22,6 @@ meta = [
     FileMeta(
         **meta,
         PascalCase="some value",
-        pascal_case="snake value",
     ).dict()
     for meta in streams
 ]
