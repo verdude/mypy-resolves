@@ -21,6 +21,7 @@ black = "black.lock"
 [python.resolves_to_interpreter_constraints]
 v2 = ["CPython==3.11.11"]
 python-default = ["CPython==3.10.15"]
+black = ["CPython==3.10.15", "CPython==3.11.11"]
 
 [generate-lockfiles]
 diff = true
