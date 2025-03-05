@@ -14,7 +14,11 @@ class FileMeta(BaseModel):
         extra = "allow"
         allow_population_by_field_name = True
 
+match sys.argv:
+    case [_, str(m)]:
+        media_file = m
+    case _:
+        raise ValueError("Missing file argument")
 
-media_file = sys.argv[1]
 streams = ffmpeg.probe(media_file)["streams"]
-print(json.dumps([FileMeta(**meta, SomeThing="some value").dict() for meta in streams]))
+print(json.dumps([FileMeta(**meta, something="some value").dict() for meta in streams]))

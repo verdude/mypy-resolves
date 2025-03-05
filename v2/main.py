@@ -16,7 +16,12 @@ class FileMeta(BaseModel):
     )
 
 
-media_file = sys.argv[1]
+match sys.argv:
+    case [_, str(m)]:
+        media_file = m
+    case _:
+        raise ValueError("Missing file argument")
+
 streams = ffmpeg.probe(media_file)["streams"]
 meta = [
     FileMeta(
