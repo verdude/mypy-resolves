@@ -1,8 +1,14 @@
 python_requirement(
+    name="black",
+    requirements=["black"],
+    resolve="black",
+)
+
+python_requirement(
     name="ffmpeg_target",
     modules=["ffmpeg"],
     requirements=["typed-ffmpeg"],
-    resolve=parametrize("python-default","v2"),
+    resolve=parametrize("python-default", "v2"),
 )
 
 python_requirement(

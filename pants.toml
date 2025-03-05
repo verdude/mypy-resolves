@@ -16,6 +16,7 @@ enable_resolves = true
 python-default = "v1.lock"
 v2 = "v2.lock"
 mypy = "mypy.lock"
+black = "black.lock"
 
 [python.resolves_to_interpreter_constraints]
 v2 = ["CPython==3.11.11"]
